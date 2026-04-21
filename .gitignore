@@ -1,0 +1,14 @@
+.env
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.streamlit/
+Summary.md
+task.md
+phase_1_design.md
+phase_3_validation.md
+phase_3_deep_test.md
+walkthrough.md
+implementation_plan.md
+final_walkthrough.md
+scratch/
