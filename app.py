@@ -247,8 +247,23 @@ with st.sidebar:
         with ct: temperature = st.slider("Entropy", 0.0, 1.0, 0.7)
         with cm: memory_window = st.slider("Memory", 1, 50, 10)
     
-    with st.expander("🔑 Access & Security"):
-        groq_api_key = st.text_input("Groq Cloud Key", value=GROQ_API_ENV if GROQ_API_ENV else "", type="password")
+    with st.expander("🔑 Access & Security", expanded=True):
+        st.markdown("### 🛠️ Bot Builder")
+        st.info("Each user provides their own free API key from Groq. Your key is saved locally to your session and never shared with the developer.")
+        
+        # We leave this empty by default for security
+        groq_api_key = st.text_input(
+            "Your Groq API Key", 
+            placeholder="gsk_...",
+            help="🔗 Get your free API key at console.groq.com/keys",
+            type="password"
+        )
+        
+        st.markdown("[🔗 Get your free API key at console.groq.com/keys →](https://console.groq.com/keys)")
+        
+        if not groq_api_key:
+            st.warning("⚠️ Please enter and save your Groq API key above before building a chatbot.")
+        
         if st.button("🗑️ Purge Buffer (Reset)", use_container_width=True):
             st.session_state.messages = []
             st.rerun()

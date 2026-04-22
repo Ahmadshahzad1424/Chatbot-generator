@@ -182,7 +182,7 @@ def show_landing_page():
 
     st.markdown("""
         <div style="text-align: center; padding-top: 50px;">
-            <p style="color: #00d4ff; font-weight: bold; letter-spacing: 2px;">BS FINAL YEAR PROJECT | NAVTTC BATCH 3</p>
+            <p style="color: #00d4ff; font-weight: bold; letter-spacing: 2px;">NAVTTC BATCH 3</p>
             <h1 style="font-size: 5rem; line-height:1; margin-bottom: 20px; background: linear-gradient(135deg, #fff 30%, #00d4ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">NEXUS CORE v2.0</h1>
             <p style="font-size: 1.4rem; color: #888; max-width: 800px; margin: 0 auto 40px auto;">Advanced Multi-Persona LLM Lifecycle Management System. Automated Prompt Engineering, Real-Time Analytics, and Compiled Exporter.</p>
         </div>
@@ -247,8 +247,23 @@ with st.sidebar:
         with ct: temperature = st.slider("Entropy", 0.0, 1.0, 0.7)
         with cm: memory_window = st.slider("Memory", 1, 50, 10)
     
-    with st.expander("🔑 Access & Security"):
-        groq_api_key = st.text_input("Groq Cloud Key", value=GROQ_API_ENV if GROQ_API_ENV else "", type="password")
+    with st.expander("🔑 Access & Security", expanded=True):
+        st.markdown("### 🛠️ Bot Builder")
+        st.info("Each user provides their own free API key from Groq. Your key is saved locally to your session and never shared with the developer.")
+        
+        # We leave this empty by default for security
+        groq_api_key = st.text_input(
+            "Your Groq API Key", 
+            placeholder="gsk_...",
+            help="🔗 Get your free API key at console.groq.com/keys",
+            type="password"
+        )
+        
+        st.markdown("[🔗 Get your free API key at console.groq.com/keys →](https://console.groq.com/keys)")
+        
+        if not groq_api_key:
+            st.warning("⚠️ Please enter and save your Groq API key above before building a chatbot.")
+        
         if st.button("🗑️ Purge Buffer (Reset)", use_container_width=True):
             st.session_state.messages = []
             st.rerun()
