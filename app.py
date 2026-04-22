@@ -182,7 +182,7 @@ def show_landing_page():
 
     st.markdown("""
         <div style="text-align: center; padding-top: 50px;">
-            <p style="color: #00d4ff; font-weight: bold; letter-spacing: 2px;">BS FINAL YEAR PROJECT | NAVTTC BATCH 3</p>
+            <p style="color: #00d4ff; font-weight: bold; letter-spacing: 2px;">NAVTTC BATCH 3</p>
             <h1 style="font-size: 5rem; line-height:1; margin-bottom: 20px; background: linear-gradient(135deg, #fff 30%, #00d4ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">NEXUS CORE v2.0</h1>
             <p style="font-size: 1.4rem; color: #888; max-width: 800px; margin: 0 auto 40px auto;">Advanced Multi-Persona LLM Lifecycle Management System. Automated Prompt Engineering, Real-Time Analytics, and Compiled Exporter.</p>
         </div>
